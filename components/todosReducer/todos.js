@@ -16,6 +16,8 @@ const todos = (state = [], action) => {
 
         return toggleTodo(todo);
       });
+    default:
+      return state;
   }
 };
 
