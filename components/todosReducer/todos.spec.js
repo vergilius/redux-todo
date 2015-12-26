@@ -2,21 +2,26 @@ import deepFreeze from 'deep-freeze';
 import expect from 'expect';
 import todos from './todos';
 
-describe('Todos list', () => {
+describe('Todos reducer', () => {
 
-
-  it('adds a todo without mutation (with reducer)', () => {
-    const stateBefore = [];
+  it('returns current state if no valid action was passed', () => {
+    const stateBefore = [
+      {
+        id: 0,
+        text: 'New todo',
+        completed: true
+      }
+    ];
     const action = {
-      type: 'ADD_TODO',
+      type: 'INVALID_ACTION',
       id: 0,
-      text: 'New todo'
+      text: 'New todo2'
     };
     const stateAfter = [
       {
         id: 0,
         text: 'New todo',
-        completed: false
+        completed: true
       }
     ];
 

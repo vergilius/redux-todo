@@ -1,7 +1,7 @@
-const toggleTodo = (todo) => {
+const toggle = (todo) => {
   return Object.assign({}, todo, {
     completed: !todo.completed
   });
 };
 
-export default toggleTodo;
+export default toggle;
