@@ -12,13 +12,31 @@ const todoApp = combineReducers({
 
 const store = createStore(todoApp);
 
+let nextId = 0;
 class TodoApp extends React.Component {
   render() {
     return (
       <div>
-        <button>
-          test
+        <input ref={node => {
+          this.input = node;
+        }} />
+        <button onClick={() => {
+          store.dispatch({
+            type: 'ADD_TODO',
+            text: this.input.value,
+            id: nextId++
+          });
+          this.input.value = '';
+        }}>
+          add todo
         </button>
+        <ul>
+          {this.props.todos.map(todo =>
+            <li key={todo.id}>
+              {todo.text}
+            </li>
+          )}
+        </ul>
       </div>
     );
 
@@ -27,7 +45,9 @@ class TodoApp extends React.Component {
 
 const render = () => {
   ReactDOM.render(
-    <TodoApp />,
+    <TodoApp
+      todos={store.getState().todos}
+    />,
     document.getElementById('root')
   );
 };
