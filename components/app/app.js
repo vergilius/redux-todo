@@ -1,13 +1,9 @@
-import todos from './../todo/todos';
-import visibilityFilter from './../filter/filter';
-
-import { createStore, combineReducers } from 'Redux';
 import React from 'React';
 import ReactDOM from 'react-dom';
+import { createStore, combineReducers } from 'Redux';
 
-import FilterList from './../filter/view/filter-list';
-import AddTodo from './../todo/view/add-todo';
-import TodoList from './../todo/view/todo-list';
+import todos from './../todo/todos';
+import visibilityFilter from './../filter/filter';
 
 const todoApp = combineReducers({
   todos,
@@ -16,20 +12,8 @@ const todoApp = combineReducers({
 
 const store = createStore(todoApp);
 
-const getVisibleTodos = (
-  todos,
-  filter
-) => {
+import TodoApp from './view/todo-app';
 
-  switch (filter) {
-    case 'SHOW_ALL':
-      return todos;
-    case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed);
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed);
-  }
-};
 
 const onFilterClick = (filter) => {
   store.dispatch({
@@ -54,36 +38,13 @@ const onTodoClick = (id) => {
   });
 };
 
-
-const TodoApp = ({
-  todos,
-  visibilityFilter
-}) => {
-  const visibleTodos = getVisibleTodos(
-    todos,
-    visibilityFilter
-  );
-
-  return (
-    <div>
-      <AddTodo onAddAction={onAddTodoAction} />
-      <TodoList
-        todos={visibleTodos}
-        onTodoClick={onTodoClick}
-      />
-      <FilterList
-        visibilityFilter={visibilityFilter}
-        onFilterClick={onFilterClick}
-      />
-    </div>
-  );
-};
-
 const render = () => {
-
   ReactDOM.render(
     <TodoApp
       {...store.getState()}
+      onFilterClick={onFilterClick}
+      onAddTodoAction={onAddTodoAction}
+      onTodoClick={onTodoClick}
     />,
     document.getElementById('root')
   );
@@ -91,6 +52,5 @@ const render = () => {
 
 store.subscribe(render);
 render();
-console.log('DONE');
 
 export default null;
