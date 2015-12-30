@@ -54,6 +54,22 @@ describe('Todos reducer', () => {
 
   });
 
+  it('does not add a todo without valid text', () => {
+    const stateBefore = [];
+    const action = {
+      type: 'ADD_TODO',
+      id: 0,
+      text: ''
+    };
+    const stateAfter = [];
+
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+
+    expect(todos(stateBefore, action)).toEqual(stateAfter);
+
+  });
+
   it('toggles todo in state', () => {
     const stateBefore = [
       {

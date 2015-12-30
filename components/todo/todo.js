@@ -1,4 +1,9 @@
 const add = (action) => {
+
+  if (!action.text.trim()) {
+    return;
+  }
+
   return {
     id: action.id,
     text: action.text,

@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './components/app.js',
+  entry: './components/main.js',
   output: { path: 'dist', filename: 'bundle.js' },
   module: {
     loaders: [
@@ -11,5 +11,5 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
-  },
+  }
 };

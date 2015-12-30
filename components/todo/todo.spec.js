@@ -23,7 +23,6 @@ describe('Todo', () => {
 
   });
 
-
   // toggle todo
   it('toggles todo without mutation', () => {
     const todoBefore = {
