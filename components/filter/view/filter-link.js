@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import Link from '../../base/view/link';
 
 const mapStateToProps = (
-  state, _props
+  state, ownProps
 ) => {
   return {
-    active: _props.filter === state.visibilityFilter
+    active: ownProps.filter === state.visibilityFilter
   }
 };
 
 const mapDispatchToProps = (
-  dispatch, _props
+  dispatch, ownProps
 ) => {
   return {
     onClick: () => {
       dispatch({
         type: 'SET_VISIBILITY_FILTER',
-        filter: _props.filter
+        filter: ownProps.filter
       })
     }
   }

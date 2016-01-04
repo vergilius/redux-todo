@@ -35,7 +35,7 @@ const getTodosByFilter = (
 };
 
 const mapStateToProps = (
-  state, _props
+  state, ownProps
 ) => {
   return {
     todos: getTodosByFilter(
@@ -46,7 +46,7 @@ const mapStateToProps = (
 };
 
 const mapDispatchToProps = (
-  dispatch, _props
+  dispatch, ownProps
 ) => {
   return {
     onTodoClick: (id) => {
