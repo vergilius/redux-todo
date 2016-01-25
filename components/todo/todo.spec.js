@@ -3,7 +3,6 @@ import expect from 'expect';
 import todo from './todo';
 
 describe('Todo', () => {
-
   // add todo
   it('creates new todo according to action', () => {
     const action = {
@@ -20,7 +19,6 @@ describe('Todo', () => {
     deepFreeze(action);
 
     expect(todo({}, action)).toEqual(createdTodo);
-
   });
 
   // toggle todo
@@ -44,8 +42,5 @@ describe('Todo', () => {
     deepFreeze(action);
 
     expect(todo(todoBefore, action)).toEqual(todoAfter);
-
   });
-
-
 });

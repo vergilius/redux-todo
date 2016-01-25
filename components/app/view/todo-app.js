@@ -7,10 +7,19 @@ import FilterList from '../../filter/view/filter-list';
 
 
 const TodoApp = () => (
-  <div>
+  <div className="mint-content-box layout__wrapper">
+    <div className="mint-content-box__header">
+      <h2 className="mint-header-primary mint-header-primary--small">
+        Today's todos
+      </h2>
+    </div>
     <AddTodo />
-    <TodoList />
-    <FilterList />
+    <div className="mint-content-box__content">
+      <TodoList />
+    </div>
+    <div className="mint-content-box__actions">
+      <FilterList />
+    </div>
   </div>
 );
 

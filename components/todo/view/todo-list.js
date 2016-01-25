@@ -8,7 +8,7 @@ const TodoList = ({
   todos,
   onTodoClick
 }) => (
-  <ul>
+  <ul className="mint-list mint-list--spaced-elements">
     {todos.map(todo =>
       <TodoItem
         key={todo.id}

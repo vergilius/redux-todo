@@ -7,11 +7,16 @@ const Link = ({
   onClick
 }) => {
   if (active) {
-    return <span>{children}</span>;
+    return (
+      <span className="mint-link mint-link--gray mint-link--disabled">
+        {children}
+      </span>
+    );
   }
 
   return (
     <a href='#'
+       className="mint-link"
        onClick={e => {
          e.preventDefault();
          onClick();

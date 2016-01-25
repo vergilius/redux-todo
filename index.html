@@ -2,10 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redux-Todo</title>
+    <title>Today's todos</title>
+    <link rel="stylesheet" href="//styleguide.brainly.com/22.0.8/style-guide.css" />
+    <style>
+        .layout {
+            width: 100%;
+            max-width: 768px;
+            margin: 48px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .layout__wrapper {
+            position: relative;
+            width: 288px;
+        }
+
+        .add-button {
+            position: absolute;
+            right: -12px;
+        }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root" class="layout"></div>
     <script src="dist/bundle.js"></script>
+    <script src="http://styleguide.brainly.com/images/icons-4470ed4223.js"></script>
 </body>
 </html>

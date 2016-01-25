@@ -5,7 +5,7 @@ import FilterLink from './filter-link';
 
 const FilterList = () => (
   <p>
-    Show:
+    Filter:
     {' '}
     <FilterLink filter='SHOW_ALL'>
       All
